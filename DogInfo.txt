@@ -1,0 +1,10 @@
+Papillon 7 Golden
+Collie 50 Brown
+Greyhound 65 Golden
+Dalmatian 55 White
+Corgi 25 Golden
+Husky 50 Pepper
+Beagle 20 Tricolor
+Bulldog 45 Brown
+Pug 15 White
+Akita 100 Brown
