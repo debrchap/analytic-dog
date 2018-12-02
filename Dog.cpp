@@ -14,7 +14,7 @@
     color = myColor;
   }
 
-  int Dog::getAge(){
+  int Dog::getWeight(){
     return weight;
   }
   void Dog::setWeight(int myWeight){
