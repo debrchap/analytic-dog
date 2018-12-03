@@ -9,8 +9,9 @@ using namespace std;
 
 //Function prototypes
 void copyArray();
-void mergeSort();
 void splitMerge();
+void mergeSort();
+void mergeArray();
 void sortDogNames();//write this method
 void sortDogWeights();
 void sortDogColors();
@@ -43,9 +44,26 @@ int main() {
   return 0;
 }
 
-void copyArray() {
-  for (k=0; k < SIZE; k++)
-    work_array[k] = dog_array[k];
+void copyArray(Dog A[], int first, int last, Dog B[]) {
+  for (k=first; k < last; k++)
+    B[k] = A[k];
+}
+
+void splitMerge(B[], first, last, A[]) {
+  //if the run size is 1, end function
+  if (last - first < 2)
+    return;
+  //split run in half
+  mid = (last + first) / 2;
+
+
+}
+
+void mergeSort() {
+  //Duplicate dog array into work array
+  copyArray(dog_array, 0, SIZE, work_array);
+  //Sort data from work array into dog array
+  splitMerge();
 }
 
 void sortDogNames() {
