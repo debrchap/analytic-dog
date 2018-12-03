@@ -10,9 +10,8 @@ using namespace std;
 //Function prototypes
 void sortString(string dog_trait[], int index[]);
 void sortInt(int dog_trait[], int index[]);
-int findDog(string name); //write this method
-//it should return index of dog or -1 if not found
-void printDog(); //write this method to print Dog DogInfo
+int findDog(string name);
+void printDog();
 //Global variables
 Dog dog_array[SIZE];
 string dog_name[SIZE];
