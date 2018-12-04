@@ -9,9 +9,8 @@ using namespace std;
 //Function prototypes
 void sortString(string dog_trait[], int index[]);
 void sortInt(int dog_trait[], int index[]);
-//int findDog(string name); //write this method
-//it should return index of dog or -1 if not found
-void printDog(); //write this method to print Dog DogInfo
+//int findDog(string name);
+void printDog(string trait, int index[]);
 //Global variables
 Dog dog_array[SIZE];
 string dog_name[SIZE];
@@ -48,7 +47,9 @@ int main() {
 
   sortString(dog_name, name_index);
   sortString(dog_color, color_index);
-  printDog();
+  printDog("Name", name_index);
+  printDog("Weight", weight_index);
+  printDog("Color", color_index);
 
   return 0;
 }
@@ -100,7 +101,7 @@ void sortInt(int dog_trait[], int index[]) {
   } while (swap);
 }
 
-/*int findDog(string name) {
+int findDog(string name) {
   int middle, first = 0;
   bool over = false, found = false;
   while (!over)
@@ -108,13 +109,13 @@ void sortInt(int dog_trait[], int index[]) {
     //Every loop, reset middle to be in the middle of the new range
     middle = (first + last)/2;
 
-    if (nums[middle] == name)
+    if (dog_name[middle] == name)
     {
       over = true;
       found = true;
     }
     //If user value is less than middle, reset last to one less than the middle that was checked already
-    else if (name < nums[middle])
+    else if (name < dog_name[middle])
       last = middle - 1;
     //If user value is greater than middle, reset the first to one more than the middle that was checked already
     else
@@ -126,28 +127,20 @@ void sortInt(int dog_trait[], int index[]) {
   }
 
   if (found)
-    cout << "The winning ticket number " << name << " was found on your ticket: " << index[middle] << endl;
+    return index[middle];
   else
-    cout << "None of your tickets are the winning ticket." << endl;
-}*/
+    return -1;
+}
 
-void printDog() {
+void printDog(string trait, int index[]) {
   int i = 0;
   string s = "";
   s.assign(50, '-');
-  cout << "List of Dogs, Sorted by Name" <<endl;
+  cout << "List of Dogs, Sorted by "<< trait <<endl;
   cout << s <<endl;
   for (int k=0; k < SIZE; k++)
   {
-    i = name_index[k];
-    cout << i << " " << endl;
-    //cout << dog_array[i].getName << dog_array[i].getWeight << dog_array[i].getColor <<endl;
-  }
-  cout << "List of Dogs, Sorted by Color" << endl;
-  cout << s <<endl;
-  for (int k=0; k < SIZE; k++)
-  {
-    i = color_index[k];
+    i = index[k];
     cout << i << " " << endl;
     //cout << dog_array[i].getName << dog_array[i].getWeight << dog_array[i].getColor <<endl;
   }
