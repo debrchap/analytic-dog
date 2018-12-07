@@ -79,7 +79,7 @@ void sortBreed() {
     {
       if ((breed_ptr[k].getBreed()).compare(breed_ptr[k+1].getBreed()) > 0)
       {
-        *temp_ptr = breed_ptr[k];
+        temp_ptr = (breed_ptr + k);
         breed_ptr[k] = breed_ptr[k+1];
         breed_ptr[k+1] = *temp_ptr;
         swap = true;
@@ -101,13 +101,16 @@ void sortWeight() {
     {
       if (weight_ptr[k].getWeight() > weight_ptr[k+1].getWeight())
       {
-        *temp_ptr = weight_ptr[k];
+        temp_ptr = (weight_ptr + k);
         weight_ptr[k] = weight_ptr[k+1];
         weight_ptr[k+1] = *temp_ptr;
         swap = true;
       }
     }
   } while (swap);
+
+  for (int k=0; k < SIZE; k++)
+    cout << weight_ptr[k].getBreed() << " " << weight_ptr[k].getWeight() << " " << weight_ptr[k].getColor() << endl;
 }
 
 void sortColor() {
@@ -120,7 +123,7 @@ void sortColor() {
     {
       if ((color_ptr[k].getColor()).compare(color_ptr[k+1].getColor()) > 0)
       {
-        *temp_ptr = color_ptr[k];
+        temp_ptr = (color_ptr + k);
         color_ptr[k] = color_ptr[k+1];
         color_ptr[k+1] = *temp_ptr;
         swap = true;
