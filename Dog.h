@@ -8,16 +8,16 @@ using namespace std;
 //Function prototypes
 void openFile();
 void sortBreed();
-
+void sortWeight();
+void sortColor();
 
 class Dog{
-
-  private:
+  private:  //keep information hidden
   string breed;
-  int weight;  
+  int weight;   //note this is public  
   string color;
 
-  public: 
+  public: //create a public interface for access
 
 //default constructor header
   Dog();
