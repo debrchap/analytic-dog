@@ -2,27 +2,33 @@
 #define DOG_H
 #include <iostream>
 #include <string>
-using std::string;
-class Dog{
-  //attributes or data section
+using namespace std;
 
-  private:  //keep information hidden
-  string name;
-  int weight;   //note this is public  
+#define SIZE 10
+//Function prototypes
+void openFile();
+void sortBreed();
+
+
+class Dog{
+
+  private:
+  string breed;
+  int weight;  
   string color;
 
-  public: //create a public interface for access
+  public: 
 
 //default constructor header
   Dog();
 // regular constructor header
-  Dog(string myName,int myWeight,string myColor);
+  Dog(string myBreed, int myWeight, string myColor);
 
   int getWeight();
   void setWeight(int myWeight);
   string getColor();
-  string getName();
-  void setName(String name);
-  void setColor(String color);
+  string getBreed();
+  void setBreed(string breed);
+  void setColor(string color);
 };
 #endif
