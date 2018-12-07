@@ -1,4 +1,4 @@
-//Implementation File
+//Implementation File for Dog File
 #include "Dog.h"
 #include <fstream>
 //default constructor
@@ -64,7 +64,7 @@ void openFile() {
     weight_ptr = dog_ptr;
     color_ptr = dog_ptr;
 
-    cout << breed_ptr[2].getBreed() << endl;
+    cout << weight_ptr[2].getBreed() << endl;
   }
 }
 
@@ -87,6 +87,47 @@ void sortBreed() {
     }
   } while (swap);
   
-  /*for (int k=0; k < SIZE; k++)
-    cout << breed_ptr[k].getBreed() << " " /*<< breed_ptr[k].getWeight << " " << breed_ptr[k].getColor() << endl;*/
+  for (int k=0; k < SIZE; k++)
+    cout << breed_ptr[k].getBreed() << " " << breed_ptr[k].getWeight() << " " << breed_ptr[k].getColor() << endl;
+}
+
+void sortWeight() {
+  Dog* temp_ptr;
+  bool swap;
+  do
+  {
+    swap = false;
+    for (int k=0; k < last; k++)
+    {
+      if (weight_ptr[k].getWeight() > weight_ptr[k+1].getWeight())
+      {
+        *temp_ptr = weight_ptr[k];
+        weight_ptr[k] = weight_ptr[k+1];
+        weight_ptr[k+1] = *temp_ptr;
+        swap = true;
+      }
+    }
+  } while (swap);
+}
+
+void sortColor() {
+  Dog* temp_ptr;
+  bool swap;
+  do
+  {
+    swap = false;
+    for (int k=0; k < last; k++)
+    {
+      if ((color_ptr[k].getColor()).compare(color_ptr[k+1].getColor()) > 0)
+      {
+        *temp_ptr = color_ptr[k];
+        color_ptr[k] = color_ptr[k+1];
+        color_ptr[k+1] = *temp_ptr;
+        swap = true;
+      }
+    }
+  } while (swap);
+  
+  for (int k=0; k < SIZE; k++)
+    cout << color_ptr[k].getBreed() << " " << color_ptr[k].getWeight() << " " << color_ptr[k].getColor() << endl;
 }
