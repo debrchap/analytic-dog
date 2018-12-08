@@ -6,7 +6,10 @@ using namespace std;
 int main() {
   
   openFile();
-  sortBreed();
-  
+  printDog("Breed", sortBreed());
+  cout << endl;
+  printDog("Weight", sortWeight());
+  cout << endl;
+  printDog("Color", sortColor());
   return 0;
 }
