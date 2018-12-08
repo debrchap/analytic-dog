@@ -4,24 +4,20 @@
 #include <string>
 using namespace std;
 
-#define SIZE 10
-//Function prototypes
-void openFile();
-void sortBreed();
-void sortWeight();
-void sortColor();
+#define SIZE 10 //number of dogs in data file
 
 class Dog{
-  private:  //keep information hidden
+  //keep information hidden
+  private:
   string breed;
   int weight;   //note this is public  
   string color;
 
-  public: //create a public interface for access
-
-//default constructor header
+  //create a public interface for access
+  public:
+  //default constructor header
   Dog();
-// regular constructor header
+  // regular constructor header
   Dog(string myBreed, int myWeight, string myColor);
 
   int getWeight();
@@ -31,4 +27,12 @@ class Dog{
   void setBreed(string breed);
   void setColor(string color);
 };
+
+//Function prototypes
+void openFile();
+Dog* sortBreed();
+Dog* sortWeight();
+Dog* sortColor();
+void printDog(string trait, Dog* ptr);
+
 #endif
