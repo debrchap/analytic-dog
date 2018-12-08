@@ -7,7 +7,7 @@
     weight = 0;
     color = "";
   }
-// regular constructor
+//regular constructor
   Dog::Dog(string myBreed, int myWeight, string myColor){
     breed = myBreed;
     weight = myWeight;
@@ -58,79 +58,57 @@ void openFile() {
       dog_ptr[k].setColor(color);
     }
 
-    cout << dog_ptr[2].getBreed() << endl;
-
     breed_ptr = dog_ptr;
     weight_ptr = dog_ptr;
     color_ptr = dog_ptr;
-
-    cout << weight_ptr[2].getBreed() << endl;
   }
 }
 
 
-void sortBreed() {
-  Dog* temp_ptr;
-  bool swap;
-  do
+Dog* sortBreed() {
+  int smallest;
+  for (int i=0; i < last; i++)
   {
-    swap = false;
-    for (int k=0; k < last; k++)
-    {
-      if ((breed_ptr[k].getBreed()).compare(breed_ptr[k+1].getBreed()) > 0)
-      {
-        temp_ptr = (breed_ptr + k);
-        breed_ptr[k] = breed_ptr[k+1];
-        breed_ptr[k+1] = *temp_ptr;
-        swap = true;
-      }
-    }
-  } while (swap);
-  
-  for (int k=0; k < SIZE; k++)
-    cout << breed_ptr[k].getBreed() << " " << breed_ptr[k].getWeight() << " " << breed_ptr[k].getColor() << endl;
+    smallest = i;
+    for (int index = i + 1; index < SIZE; index++)
+      if ((breed_ptr[index].getBreed()).compare(breed_ptr[smallest].getBreed()) < 0)
+        smallest = index;
+    swap(breed_ptr[i], breed_ptr[smallest]);
+  }
+  return breed_ptr;
 }
 
-void sortWeight() {
-  Dog* temp_ptr;
-  bool swap;
-  do
+Dog* sortWeight() {
+  int smallest;
+  for (int i=0; i < last; i++)
   {
-    swap = false;
-    for (int k=0; k < last; k++)
-    {
-      if (weight_ptr[k].getWeight() > weight_ptr[k+1].getWeight())
-      {
-        temp_ptr = (weight_ptr + k);
-        weight_ptr[k] = weight_ptr[k+1];
-        weight_ptr[k+1] = *temp_ptr;
-        swap = true;
-      }
-    }
-  } while (swap);
-
-  for (int k=0; k < SIZE; k++)
-    cout << weight_ptr[k].getBreed() << " " << weight_ptr[k].getWeight() << " " << weight_ptr[k].getColor() << endl;
+    smallest = i;
+    for (int index = i + 1; index < SIZE; index++)
+      if (weight_ptr[index].getWeight() < weight_ptr[smallest].getWeight())
+        smallest = index;
+    swap(weight_ptr[i], weight_ptr[smallest]);
+  }
+  return weight_ptr;
 }
 
-void sortColor() {
-  Dog* temp_ptr;
-  bool swap;
-  do
+Dog* sortColor() {
+  int smallest;
+  for (int i=0; i < last; i++)
   {
-    swap = false;
-    for (int k=0; k < last; k++)
-    {
-      if ((color_ptr[k].getColor()).compare(color_ptr[k+1].getColor()) > 0)
-      {
-        temp_ptr = (color_ptr + k);
-        color_ptr[k] = color_ptr[k+1];
-        color_ptr[k+1] = *temp_ptr;
-        swap = true;
-      }
-    }
-  } while (swap);
-  
+    smallest = i;
+    for (int index = i + 1; index < SIZE; index++)
+      if ((color_ptr[index].getColor()).compare(color_ptr[smallest].getColor()) < 0)
+        smallest = index;
+    swap(color_ptr[i], color_ptr[smallest]);
+  }
+  return color_ptr;
+}
+
+void printDog(string trait, Dog* ptr) {
+  string s = "";
+  s.assign(50, '-');
+  cout << "List of Dogs, Sorted by "<< trait <<endl;
+  cout << s <<endl;
   for (int k=0; k < SIZE; k++)
-    cout << color_ptr[k].getBreed() << " " << color_ptr[k].getWeight() << " " << color_ptr[k].getColor() << endl;
+    cout << ptr[k].getBreed() << " " << ptr[k].getWeight() << " " << ptr[k].getColor() << endl;
 }
